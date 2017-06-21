@@ -37,11 +37,11 @@ del train_X_with_mostAndLastest
 del test_X_with_mostAndLastest
 
 
-model = xgb.XGBClassifier(objective='multi:softprob', n_estimators=200, n_jobs=-1, learning_rate=0.1)
+model = xgb.XGBClassifier(objective='multi:softprob', n_estimators=500, n_jobs=32, learning_rate=0.1)
 model.fit(train_X_slideWindows_all, train_Y)
 
 import pickle
-pickle.dump(model, open('slide_windows_all_7_14_30_60_90_with_most_and_latest_xgb_200.pkl', 'wb'))
+pickle.dump(model, open('slide_windows_all_7_14_30_60_90_with_most_and_latest_xgb_500.pkl', 'wb'))
 
 pred = model.predict(test_X_slideWindows_all)
-save_submission('slide_windows_all_7_14_30_60_90_with_most_and_latest_xgb_200', test_user_id, pred).head()
+save_submission('slide_windows_all_7_14_30_60_90_with_most_and_latest_xgb_500', test_user_id, pred).head()
