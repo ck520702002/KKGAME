@@ -17,11 +17,11 @@ def save_submission(name, test_user_id, predictions):
 labels_train = pd.read_csv('./assets/labels_train.csv')
 train_Y = labels_train.title_id.values
 
-train_X_slideWindows_all = pd.read_csv('train_X_slideWindows_all.csv')
-test_X_slideWindows_all = pd.read_csv('test_X_slideWindows_all.csv')
+train_X_slideWindows_all = pd.read_csv('./assets/train_X_slideWindows_all.csv')
+test_X_slideWindows_all = pd.read_csv('./assets/test_X_slideWindows_all.csv')
 
-train_X_with_mostAndLastest = pd.read_csv('train_X_with_mostAndLastest.csv').drop('user_id', axis=1)
-test_X_with_mostAndLastest = pd.read_csv('test_X_with_mostAndLastest.csv').drop('user_id', axis=1)
+train_X_with_mostAndLastest = pd.read_csv('./assets/train_X_with_mostAndLastest.csv').drop('user_id', axis=1)
+test_X_with_mostAndLastest = pd.read_csv('./assets/test_X_with_mostAndLastest.csv').drop('user_id', axis=1)
 remain_features = ['w14_lastest_view_no1', 'w14_most_view_no1', 'w30_lastest_view_no1', 'w30_most_view_no1', 'w60_lastest_view_no1', 'w60_lastest_view_no2', 'w60_most_view_no1', 'w60_most_view_no2', 'w90_lastest_view_no1', 'w90_lastest_view_no2', 'w90_most_view_no1', 'w90_most_view_no2']
 # train_X_slideWindows_all = train_X_slideWindows_all[remain_features].fillna(method='backfill', axis=1).fillna(method='ffill', axis=1).fillna(-1)
 # test_X_slideWindows_all = test_X_slideWindows_all[remain_features].fillna(method='backfill', axis=1).fillna(method='ffill', axis=1).fillna(-1)
